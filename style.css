@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+ 
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+ 
+/* Card */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+ 
+h1 {
+  font-size: 1.5rem;
+}
+ 
+#message {
+  margin: 1rem 0 1.5rem;
+  color: #555;
+}
+ 
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+ 
+button {
+  padding: 0.7rem 1.3rem;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+ 
+#yesBtn {
+  background: #ff5fa2;
+  color: white;
+}
+ 
+#noBtn {
+  background: #eee;
+  position: relative;
+}
+ 
+/* BIG floating hearts */
+/* Background hearts */
+.heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 1;              /* BACKGROUND */
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+
+@keyframes floatUp {
+  from {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(var(--drift)) translateY(-120vh);
+    opacity: 1;
+  }
+}
+ 
+
+/* Main content always on top */
+.card,
+.love,
+.yes-container {
+  position: relative;
+  z-index: 10;             /* foreground */
+}
+
+ 
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 12px;
+  height: 16px;
+  border-radius: 3px;
+  animation: fall forwards;
+}
+ 
+@keyframes fall {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform:
+      translateX(var(--x-drift))
+      translateY(110vh)
+      rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+ 
+.yes-container h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+ 
+.panda-gif {
+  max-width: 220px;
+  width: 70%;
+  height: 70%;
+}
+
+.panda-gif1 {
+  position: relative;
+  align-items: center;
+  width: 280px;
+  height: 160px;
+  padding-left: 70px;
+}
+
+.yes-body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.yes-container {
+  position: relative;
+  z-index: 10;          /* stays above hearts */
+  text-align: center;
+  padding: 20px;
+  /* ❌ NO background here */
+}
+
+.hearts-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
